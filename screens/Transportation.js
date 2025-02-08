@@ -15,7 +15,7 @@ const Directions = () => {
     const mockHospitals = [
       {
         name: 'Shands Hospital',
-        location: { lat: 29.6518, lng: -82.3248 },
+        location: { lat: 29.6195307, lng: -82.3821163 },
         address: '1600 SW Archer Rd, Gainesville, FL'
       },
       {
