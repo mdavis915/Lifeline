@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, TouchableOpacity, Linking, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Linking, StyleSheet, Image } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-
 import axios from 'axios';
 
 // Google API Key
@@ -98,16 +97,22 @@ const Directions = () => {
                 {/* Ride Share and Google Maps Buttons */}
                 <View style={styles.buttonContainer}>
                   <TouchableOpacity
-                    style={styles.uberButton}
+                    style={styles.iconButton}
                     onPress={() => openUber(hospital.vicinity)} // Open Uber directly
                   >
-                    <Text style={styles.buttonText}>Uber</Text>
+                    <Image 
+                      source={require('../assets/uber-icon.png')} // Replace with your local Uber icon path
+                      style={styles.iconImage}
+                    />
                   </TouchableOpacity>
                   <TouchableOpacity
-                    style={styles.mapsButton}
+                    style={styles.iconButton}
                     onPress={() => openGoogleMaps(hospital.vicinity)} // Open Google Maps directly
                   >
-                    <Text style={styles.buttonText}>Get Directions (Google Maps)</Text>
+                    <Image 
+                      source={require('../assets/maps-icon.png')} // Replace with your local Maps icon path
+                      style={styles.iconImage}
+                    />
                   </TouchableOpacity>
                 </View>
               </View>
@@ -128,7 +133,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   header: {
-    fontSize: 24,
+    fontSize: 30,  // Increased font size
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 20,
@@ -145,7 +150,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   filterLabel: {
-    fontSize: 16,
+    fontSize: 18,  // Increased font size
     marginBottom: 10,
     color: '#333',
   },
@@ -167,42 +172,37 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   hospitalName: {
-    fontSize: 18,
+    fontSize: 22,  // Increased font size
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 5,
   },
   hospitalAddress: {
-    fontSize: 14,
+    fontSize: 16,  // Increased font size
     color: '#666',
     marginBottom: 10,
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around', // Adjust this to 'space-between' if you want them more spread out
+    marginTop: 10,  // Add top margin to create some space between the hospital info and buttons
   },
-  uberButton: {
-    backgroundColor: '#007BFF',
-    padding: 12,
-    flex: 1,
-    borderRadius: 5,
-    marginRight: 10,
-    alignItems: 'center',
-  },
-  mapsButton: {
-    backgroundColor: '#34b7f1',
-    padding: 12,
-    flex: 1,
+  iconButton: {
+    backgroundColor: 'transparent',
+    padding: 10,
     borderRadius: 5,
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
+  iconImage: {
+    width: 80,
+    height: 80,
+    resizeMode: 'contain',
+    backgroundColor: 'transparent',  // Ensure no background color
   },
   loadingText: {
     textAlign: 'center',
-    fontSize: 16,
+    fontSize: 18,  // Increased font size
     color: '#888',
   },
 });
