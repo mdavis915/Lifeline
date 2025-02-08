@@ -22,12 +22,12 @@ export default {
       supportsTablet: true,
     },
     extra: {
-      apiKey: process.env.API_KEY,
-      authDomain: process.env.AUTH_DOMAIN,
-      projectId: process.env.PROJECT_ID,
-      storageBucket: process.env.STORAGE_BUCKET,
-      messagingSenderId: process.env.MESSAGING_SENDER_ID,
-      appId: process.env.APP_ID,
+      apiKey: "AIzaSyDqEDCO-IzgO68Lo7MOtK_kHxlsqGPAHAo",
+      authDomain: "winghacks2025.firebaseapp.com",
+      projectId: "winghacks2025",
+      storageBucket: "winghacks2025.firebasestorage.app",
+      messagingSenderId: "116000525258",
+      appId: "1:116000525258:web:aa5f688e9010694603dd33"
     },
   },
 };

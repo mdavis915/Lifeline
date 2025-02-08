@@ -27,7 +27,7 @@ export const LoginScreen = ({ navigation }) => {
           {/* LogoContainer: consist app logo and screen title */}
           <View style={styles.logoContainer}>
             <Logo uri={Images.logo} />
-            <Text style={styles.screenTitle}>Welcome back!</Text>
+            <Text style={styles.screenTitle}>ElderHealth</Text>
           </View>
           <Formik
             initialValues={{
@@ -110,7 +110,7 @@ export const LoginScreen = ({ navigation }) => {
 
       {/* App info footer */}
       <View style={styles.footer}>
-        <Text style={styles.footerText}>Expo Firebase Starter App</Text>
+        <Text style={styles.footerText}>Made with love @ WingHacks 2025</Text>
       </View>
     </>
   );
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   footerText: {
     fontSize: 14,
     fontWeight: "700",
-    color: Colors.orange,
+    color: Colors.blue,
   },
   button: {
     width: "100%",
