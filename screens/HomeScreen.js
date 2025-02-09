@@ -1,6 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Button, Text } from "react-native"; // Import Text component
-
+import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import { signOut } from "firebase/auth";
 import { auth } from "../config";
 
@@ -13,18 +12,32 @@ export const HomeScreen = ({ navigation }) => {
     navigation.navigate("Transportation");
   };
 
-  const callEmergencyPhone = () => {
-    const phoneNumber = "tel://911" || "tel:911" ; // 
-    Linking.openURL(phoneNumber).catch((err) =>
-      Alert.alert("Error", "Could not open dialer")
-    );
-  };
-
   return (
     <View style={styles.container}>
-      <Text>Welcome to the Home Screen</Text>
-      <Button title="Sign Out" onPress={handleLogout} />
-      <Button title="Go to Transportation" onPress={goToTransportation} />
+      {/* Header with welcome message */}
+      <View style={styles.header}>
+        <Image source={require('../assets/welcome-image.png')} style={styles.headerImage} />
+        <Text style={styles.headerText}>Carely</Text>
+      </View>
+
+      {/* Buttons */}
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={goToTransportation}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.buttonText}>Explore Transportation</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity 
+          style={[styles.button, styles.logoutButton]} 
+          onPress={handleLogout} 
+          activeOpacity={0.8}
+        >
+          <Text style={[styles.buttonText, styles.logoutButtonText]}>Sign Out</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
