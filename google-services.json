@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "116000525258",
+    "project_id": "winghacks2025",
+    "storage_bucket": "winghacks2025.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:116000525258:android:6da06f4eb332e02b03dd33",
+        "android_client_info": {
+          "package_name": "com.expo.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuPTigGVfs5--aF99PkdD19nnaZUGJJHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

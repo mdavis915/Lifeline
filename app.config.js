@@ -27,7 +27,8 @@ export default {
       projectId: "winghacks2025",
       storageBucket: "winghacks2025.firebasestorage.app",
       messagingSenderId: "116000525258",
-      appId: "1:116000525258:web:aa5f688e9010694603dd33"
+      appId: "1:116000525258:web:aa5f688e9010694603dd33",
+      
     },
   },
 };

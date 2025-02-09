@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, Image } from "react-native";
 import { Formik } from "formik";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
-import { View, TextInput, Logo, Button, FormErrorMessage } from "../components";
+import { View, TextInput, Button, FormErrorMessage } from "../components";
 import { Images, Colors, auth } from "../config";
 import { useTogglePasswordVisibility } from "../hooks";
 import { loginValidationSchema } from "../utils";
@@ -26,8 +26,11 @@ export const LoginScreen = ({ navigation }) => {
         <KeyboardAwareScrollView enableOnAndroid={true}>
           {/* LogoContainer: consist app logo and screen title */}
           <View style={styles.logoContainer}>
-            <Logo uri={Images.logo} />
-            <Text style={styles.screenTitle}>ElderHealth</Text>
+            <Image
+              source={require('../assets/welcome-image.png')}  // Replace with your image path
+              style={styles.logo}  // Adjust the styling to fit your needs
+            />
+            <Text style={styles.screenTitle}>Lifeline</Text>
           </View>
           <Formik
             initialValues={{
@@ -147,7 +150,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 8,
-    backgroundColor: Colors.orange,
+    backgroundColor: "#41BBD9",
     padding: 10,
     borderRadius: 8,
   },
@@ -160,5 +163,10 @@ const styles = StyleSheet.create({
     marginTop: 16,
     alignItems: "center",
     justifyContent: "center",
+  },
+  logo: {
+    width: 200,  // Adjust width
+    height: 200, // Adjust height
+    resizeMode: "contain", // Ensure the image fits within the container
   },
 });
