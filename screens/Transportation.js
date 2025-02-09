@@ -8,13 +8,13 @@ const GOOGLE_API_KEY = 'AIzaSyAMsW49vP5v6LvtGF11I4Ard_QJii3m7Rs';
 
 const Directions = () => {
   const [hospitals, setHospitals] = useState([]);
-  const [selectedDistance, setSelectedDistance] = useState(5); // Default to 5 miles
+  const [selectedDistance, setSelectedDistance] = useState(5); 
   const [loading, setLoading] = useState(true);
 
-  // Coordinates of University of Florida (UF)
+  
   const ufCoordinates = {
-    lat: 29.6491202,  // Latitude for UF
-    lng: -82.3450583  // Longitude for UF
+    lat: 29.6491202, 
+    lng: -82.3450583  
   };
 
   // Function to get nearby hospitals
@@ -24,7 +24,7 @@ const Directions = () => {
     try {
       const response = await axios.get(url);
       if (response.data.results.length > 0) {
-        setHospitals(response.data.results); // Store all hospital results
+        setHospitals(response.data.results); 
       } else {
         setHospitals([]);
       }
@@ -35,12 +35,11 @@ const Directions = () => {
     }
   };
 
-  // Get the nearby hospitals using UF coordinates and selected distance
+  
   useEffect(() => {
-    getNearbyHospitals(ufCoordinates.lat, ufCoordinates.lng, selectedDistance); // Fetch hospitals near UF
+    getNearbyHospitals(ufCoordinates.lat, ufCoordinates.lng, selectedDistance); 
   }, [selectedDistance]);
 
-  // Function to open Uber with predefined pickup location (University of Florida)
   const openUber = (address) => {
     const ufPickupLocation = 'University of Florida, 655 Reitz Union Drive, Gainesville, FL 32603';
   
@@ -48,18 +47,15 @@ const Directions = () => {
     const uberWebUrl = `https://m.uber.com/ul/?action=setPickup&pickup[formatted_address]=${ufPickupLocation}&dropoff[formatted_address]=${address}`;
   
     Linking.openURL(uberUrl).catch(() => {
-      // Fallback to opening Uber website if the app is not installed
       Linking.openURL(uberWebUrl);
     });
   };
   
-  // Function to open Google Maps with directions
   const openGoogleMaps = (address) => {
     const ufPickupLocation = 'University of Florida, 655 Reitz Union Drive, Gainesville, FL 32603';
 
     const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(ufPickupLocation)}&destination=${encodeURIComponent(address)}`;
 
-    // Open Google Maps with the route
     Linking.openURL(googleMapsUrl).catch((error) => {
       console.error('Error opening Google Maps:', error);
     });
@@ -69,7 +65,6 @@ const Directions = () => {
     <View style={styles.container}>
       <Text style={styles.header}>Nearby Hospitals</Text>
 
-      {/* Distance Filter */}
       <View style={styles.distancePickerContainer}>
         <Text style={styles.filterLabel}>Select Distance (miles):</Text>
         <Picker
@@ -94,23 +89,22 @@ const Directions = () => {
                 <Text style={styles.hospitalName}>{hospital.name}</Text>
                 <Text style={styles.hospitalAddress}>{hospital.vicinity}</Text>
 
-                {/* Ride Share and Google Maps Buttons */}
                 <View style={styles.buttonContainer}>
                   <TouchableOpacity
                     style={styles.iconButton}
-                    onPress={() => openUber(hospital.vicinity)} // Open Uber directly
+                    onPress={() => openUber(hospital.vicinity)} 
                   >
                     <Image 
-                      source={require('../assets/uber-icon.png')} // Replace with your local Uber icon path
+                      source={require('../assets/uber-icon.png')} 
                       style={styles.iconImage}
                     />
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={styles.iconButton}
-                    onPress={() => openGoogleMaps(hospital.vicinity)} // Open Google Maps directly
+                    onPress={() => openGoogleMaps(hospital.vicinity)} 
                   >
                     <Image 
-                      source={require('../assets/maps-icon.png')} // Replace with your local Maps icon path
+                      source={require('../assets/maps-icon.png')} 
                       style={styles.iconImage}
                     />
                   </TouchableOpacity>
@@ -133,7 +127,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9',
   },
   header: {
-    fontSize: 30,  // Increased font size
+    fontSize: 30,  
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 20,
@@ -150,7 +144,7 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   filterLabel: {
-    fontSize: 18,  // Increased font size
+    fontSize: 18,  
     marginBottom: 10,
     color: '#333',
   },
@@ -172,20 +166,20 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   hospitalName: {
-    fontSize: 22,  // Increased font size
+    fontSize: 22,  
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 5,
   },
   hospitalAddress: {
-    fontSize: 16,  // Increased font size
+    fontSize: 16, 
     color: '#666',
     marginBottom: 10,
   },
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around', // Adjust this to 'space-between' if you want them more spread out
-    marginTop: 10,  // Add top margin to create some space between the hospital info and buttons
+    justifyContent: 'space-around', 
+    marginTop: 10,  
   },
   iconButton: {
     backgroundColor: 'transparent',
@@ -198,11 +192,11 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     resizeMode: 'contain',
-    backgroundColor: 'transparent',  // Ensure no background color
+    backgroundColor: 'transparent',  
   },
   loadingText: {
     textAlign: 'center',
-    fontSize: 18,  // Increased font size
+    fontSize: 18,  
     color: '#888',
   },
 });

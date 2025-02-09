@@ -4,13 +4,12 @@ import { signOut } from "firebase/auth";
 import { auth } from "../config";
 
 export const HomeScreen = ({ navigation }) => {
-  const [fadeAnim] = useState(new Animated.Value(0)); // Initial opacity is 0
+  const [fadeAnim] = useState(new Animated.Value(0)); 
 
   useEffect(() => {
-    // Fade in the "Welcome to Carely" text on component mount
     Animated.timing(fadeAnim, {
-      toValue: 1, // Target opacity is 1 (fully visible)
-      duration: 2000, // Duration of the fade effect (in ms)
+      toValue: 1, 
+      duration: 2000, 
       useNativeDriver: true,
     }).start();
   }, [fadeAnim]);
@@ -24,7 +23,7 @@ export const HomeScreen = ({ navigation }) => {
   };
 
   const goToVitals = () => {
-    navigation.navigate("Vitals"); // Navigate to the Vitals screen
+    navigation.navigate("Vitals"); 
   };
 
   const callEmergencyPhone = () => {
@@ -65,7 +64,7 @@ export const HomeScreen = ({ navigation }) => {
           <View style={styles.cardWrapper}>
             <TouchableOpacity 
               style={[styles.card, styles.secondaryCard]} 
-              onPress={goToVitals} // Navigate to Vitals
+              onPress={goToVitals} 
               activeOpacity={0.8}
             >
               <Image source={require('../assets/vitals-icon.png')} style={styles.cardIcon} />
@@ -94,29 +93,29 @@ export const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: "#F0F4F8", // Light gray background for a professional look
+    backgroundColor: "#F0F4F8", 
     alignItems: "center",
-    paddingTop: 10, // Reduced padding at the top to move content up
+    paddingTop: 10, 
     paddingHorizontal: 20,
   },
   headerContainer: {
     width: "100%",
     flexDirection: "row",
-    justifyContent: "flex-end", // Align text and sign out button to the right
+    justifyContent: "flex-end", 
     alignItems: "center",
-    marginBottom: 20, // Reduced margin to bring content closer
-    shadowColor: "#000", // Dark shadow color
-    shadowOffset: { width: 0, height: 4 }, // Light shadow offset for header
-    shadowOpacity: 0.3, // Slight opacity for a soft shadow
-    shadowRadius: 6, // Soft blur for the shadow
+    marginBottom: 20, 
+    shadowColor: "#000", 
+    shadowOffset: { width: 0, height: 4 }, 
+    shadowOpacity: 0.3, 
+    shadowRadius: 6, 
   },
   headerText: {
     fontSize: 32,
     fontWeight: "700",
-    color: "#2C3E50", // Dark gray for header text
-    textAlign: "center", // Ensure the text stays centered
-    width: "100%", // Take the full width of the container
-    flexWrap: 'nowrap', // Prevent wrapping of the text within the container
+    color: "#2C3E50", 
+    textAlign: "center", 
+    width: "100%", 
+    flexWrap: 'nowrap', 
   },
   logoutTextContainer: {
     padding: 10,
@@ -124,22 +123,22 @@ const styles = StyleSheet.create({
   logoutText: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#E74C3C", // Red color for sign out text to make it noticeable
+    color: "#E74C3C", 
   },
   welcomeTextContainer: {
-    marginBottom: 20, // Reduced margin
-    width: "100%", // Ensure the container takes the full width
-    alignItems: "center", // Center content horizontally
-    justifyContent: "center", // Center content vertically
-    flexDirection: 'row', // Make sure the text behaves as a row (doesn't wrap)
-    textAlign: "center", // Align text in the center
-    flexWrap: 'nowrap', // Prevent wrapping to the next line
+    marginBottom: 20, 
+    width: "100%", 
+    alignItems: "center", 
+    justifyContent: "center", 
+    flexDirection: 'row', 
+    textAlign: "center", 
+    flexWrap: 'nowrap',
   },
   welcomeText: {
     fontSize: 32,
     fontWeight: "700",
-    color: "#2C3E50", // Dark gray for header text
-    textAlign: "center", // Center the text horizontally
+    color: "#2C3E50", 
+    textAlign: "center", 
   },
   dashboardContainer: {
     width: "100%",
@@ -147,73 +146,73 @@ const styles = StyleSheet.create({
   },
   cardRow: {
     flexDirection: "row",
-    justifyContent: "space-between", // Space cards evenly
+    justifyContent: "space-between", 
     width: "100%",
-    marginBottom: 10, // Reduced space between rows
-    alignItems: "center", // Align text and card properly
+    marginBottom: 10, 
+    alignItems: "center", 
   },
   cardRowCenter: {
     flexDirection: "row",
-    justifyContent: "center", // Center the emergency card
+    justifyContent: "center", 
     width: "100%",
-    marginBottom: 10, // Reduced margin
-    alignItems: "center", // Align text and card properly
+    marginBottom: 10, 
+    alignItems: "center", 
   },
   cardWrapper: {
-    alignItems: "center", // Center the card and label together
+    alignItems: "center", 
     justifyContent: "center",
-    flex: 1, // Ensures cards take equal space
-    marginHorizontal: 10, // Added some margin between the cards
+    flex: 1, 
+    marginHorizontal: 10, 
   },
   callCardWrapper: {
-    alignItems: "center", // Center the call card and label together
+    alignItems: "center", 
     justifyContent: "center",
-    marginHorizontal: 10, // Ensure the call card has some margin
-    width: "45%", // Fixed width for the call card to prevent expansion
+    marginHorizontal: 10, 
+    width: "45%", 
   },
   card: {
-    width: "100%", // Make the cards take full space of their container
-    aspectRatio: 1, // Maintain square shape (1:1 ratio)
+    width: "100%", 
+    aspectRatio: 1, 
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 25, // Increased border radius for rounded corners
-    paddingVertical: 30, // Increased padding for better text fit
+    borderRadius: 25, 
+    paddingVertical: 30, 
     paddingHorizontal: 20,
-    flexDirection: "column", // Align text and icon vertically
-    justifyContent: "center", // Center items vertically
-    marginBottom: 15, // Increased margin to place text closer to card
-    maxWidth: "90%", // Prevent cards from getting too wide
-    elevation: 40, // Android shadow support
+    flexDirection: "column", 
+    justifyContent: "center", 
+    marginBottom: 15, 
+    maxWidth: "90%", 
+    elevation: 40, 
   },
   primaryCard: {
-    backgroundColor: "#3498DB", // Soft blue for the primary card
-    shadowColor: "#3498DB", // Blue shadow to match the card color
+    backgroundColor: "#3498DB", 
+    shadowColor: "#3498DB", 
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.5,
     shadowRadius: 20,
   },
   secondaryCard: {
-    backgroundColor: "#2ECC71", // Calming green for secondary card
-    shadowColor: "#2ECC71", // Green shadow to match the card color
+    backgroundColor: "#2ECC71", 
+    shadowColor: "#2ECC71", 
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.5,
     shadowRadius: 20,
   },
   emergencyCard: {
-    backgroundColor: "#E74C3C", // Attention-grabbing red for emergency card
-    shadowColor: "#E74C3C", // Red shadow to match the card color
+    backgroundColor: "#E74C3C", 
+    shadowColor: "#E74C3C", 
     shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.5,
     shadowRadius: 20,
   },
   cardIcon: {
-    width: "100%", // Increased icon size to 80% of the card width
-    height: "100%", // Adjust height proportionally
+    width: "100%", 
+    height: "100%", 
   },
   cardLabel: {
-    fontSize: 18, // Increased font size for the label
-    color: "black", // Black text color for the label
-    marginTop: 0, // Space between the icon and the label
+    fontSize: 18, 
+    color: "black", 
+    marginTop: 0, 
   },
 });
 

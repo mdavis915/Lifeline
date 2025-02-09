@@ -27,8 +27,8 @@ export const LoginScreen = ({ navigation }) => {
           {/* LogoContainer: consist app logo and screen title */}
           <View style={styles.logoContainer}>
             <Image
-              source={require('../assets/welcome-image.png')}  // Replace with your image path
-              style={styles.logo}  // Adjust the styling to fit your needs
+              source={require('../assets/welcome-image.png')}  
+              style={styles.logo}  
             />
             <Text style={styles.screenTitle}>Lifeline</Text>
           </View>
@@ -165,8 +165,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   logo: {
-    width: 200,  // Adjust width
-    height: 200, // Adjust height
-    resizeMode: "contain", // Ensure the image fits within the container
+    width: 200,  
+    height: 200, 
+    resizeMode: "contain", 
   },
 });

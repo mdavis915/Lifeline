@@ -71,8 +71,8 @@ export const VitalsScreen = () => {
       return;
     }
   
-    setIsSubmitted(true); // Now, only set after validation passes
-    setErrorMessage(""); // Clear the error if everything is valid
+    setIsSubmitted(true); 
+    setErrorMessage(""); 
   
     const heartRateStatus = validateHeartRate(parseInt(trimmedHeartRate));
     const bloodPressureStatus = validateBloodPressure(parseInt(trimmedSystolic), parseInt(trimmedDiastolic));
